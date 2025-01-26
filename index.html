@@ -18,7 +18,7 @@
         animation.addEventListener("DOMLoaded", function () {
             const svgContainer = document.getElementById("lottie-container").querySelector("svg");
             if (svgContainer) {
-                const textNodes = svgContainer.querySelectorAll('text');
+                const textNodes = svgContainer.querySelectorAll('t');
                 textNodes.forEach(node => {
                     if (node.textContent.trim() === "{{dynamic_text}}" || node.textContent.trim() === "na") {
                         node.textContent = fraseAleatoria; // Reemplaza con la frase aleatoria
