@@ -1,7 +1,104 @@
-<div class="text-container">
-    <input type="text" id="name-input" value="Hello Youtube :-)">
-</div>
-<div class="container">
-  <div id="animation">
-  </div>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lottie Dynamic Text</title>
+    <!-- Fuente de Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Itim&family=Vidaloka&display=swap" rel="stylesheet">
+    <!-- Estilos CSS -->
+    <style>
+        .text-container {
+            display: flex;
+            margin-top: 40px;
+            justify-content: center;
+        }
+
+        .container {
+            border-radius: 1px;
+            border-style: solid;
+            border-color: black;
+            display: flex;
+            margin: auto;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .my-font {
+            font-family: 'Vidaloka', serif;
+        }
+
+        #animation {
+            width: 300px;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div class="text-container">
+        <input type="text" id="name-input" value="Hello Youtube :-)" class="my-font">
+    </div>
+    <div class="container">
+        <div id="animation"></div>
+    </div>
+
+    <!-- Lottie Web -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.10.0/lottie.min.js"></script>
+
+    <!-- JavaScript -->
+    <script>
+        const ANIMATION_URL = "https://assets2.lottiefiles.com/packages/lf20_0ypqp25v.json";
+        let text = "Hello Youtube :-)";
+        let lottieData = null;
+        let nameInput = document.getElementById("name-input");
+
+        // Usar el trabajador web de Lottie para optimizar
+        lottie.useWebWorker();
+
+        nameInput.addEventListener("input", () => {
+            let name = nameInput.value;
+            text = name;
+            console.log("Text: " + text);
+            lottieData.animationData.layers[1].t.d.k[0].s.t = text;
+            reloadAnimation();
+        });
+
+        function Get(yourUrl) {
+            let Httpreq = new XMLHttpRequest();
+            Httpreq.open("GET", yourUrl, false);
+            Httpreq.send(null);
+            return Httpreq.responseText;
+        }
+
+        function init() {
+            let json_obj = JSON.parse(Get(ANIMATION_URL));
+
+            lottieData = lottie.loadAnimation({
+                container: document.getElementById("animation"),
+                renderer: 'svg',
+                animationData: json_obj,
+                autoplay: true,
+                loop: true
+            });
+
+            lottieData.animationData.layers[1].t.d.k[0].s.t = text;
+            reloadAnimation();
+        }
+
+        function reloadAnimation() {
+            if (lottieData) {
+                lottieData.destroy();
+                lottieData = lottie.loadAnimation({
+                    container: document.getElementById("animation"),
+                    renderer: 'svg',
+                    animationData: lottieData.animationData,
+                    autoplay: true,
+                    loop: true
+                });
+            }
+        }
+
+        init();
+    </script>
+</body>
+</html>
