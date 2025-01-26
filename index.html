@@ -3,57 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lottie Animation</title>
-    <!-- Cargar la biblioteca Lottie -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.9.6/lottie.min.js"></script>
+    <title>Lottie con Texto Dinámico</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.10.0/lottie.min.js"></script>
     <style>
-        /* Contenedor de la animación */
         #lottie-container {
             width: 300px;
             height: 300px;
-            margin: auto;
-            position: relative; /* Necesario para posicionar texto */
-        }
-
-        /* Estilo del texto superpuesto */
-        #dynamic-text {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 24px;
-            font-weight: bold;
-            color: #000; /* Ajusta según tu diseño */
-            text-align: center;
-            pointer-events: none; /* Evita que el texto interfiera con clics */
+            margin: 20px auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
     </style>
 </head>
 <body>
-    <div id="lottie-container">
-        <!-- Contenedor para el texto dinámico -->
-        <div id="dynamic-text"></div>
-    </div>
+    <div id="lottie-container"></div>
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            // Lista de frases aleatorias
-            const frases = ["Sí", "No", "Tal vez", "Definitivamente", "Nunca", "Quizás", "Probablemente", "Imposible"];
-            const fraseAleatoria = frases[Math.floor(Math.random() * frases.length)];
+            const dynamicText = "¡Hola, Mundo!"; // Texto dinámico que deseas mostrar
 
-            // Muestra la frase aleatoria en el texto dinámico
-            const textElement = document.getElementById("dynamic-text");
-            textElement.textContent = fraseAleatoria;
+            // JSON de animación Lottie
+            const animationData = {
+                "v": "5.7.4",
+                "fr": 30,
+                "ip": 0,
+                "op": 60,
+                "w": 512,
+                "h": 512,
+                "layers": [
+                    {
+                        "ty": 5,
+                        "nm": "Dynamic Text",
+                        "t": {
+                            "d": {
+                                "k": [
+                                    {
+                                        "s": {
+                                            "sz": 36,
+                                            "ps": [0, 0],
+                                            "s": 72,
+                                            "lh": 86.4,
+                                            "fc": [0, 0, 0],
+                                            "t": "{{dynamicText}}"
+                                        },
+                                        "t": 0
+                                    }
+                                ]
+                            }
+                        },
+                        "ao": 0,
+                        "ip": 0,
+                        "op": 60,
+                        "st": 0,
+                        "bm": 0
+                    }
+                ]
+            };
 
-@@ -51,13 +46,13 @@
+            // Renderizar la animación
+            const lottieContainer = document.getElementById("lottie-container");
+            const animation = lottie.loadAnimation({
+                container: lottieContainer,
                 renderer: 'svg',
-                loop: false,
+                loop: true,
                 autoplay: true,
-                path: 'https://raw.githubusercontent.com/julianutn/lotties/main/Updated_Animation.json', // URL del JSON
+                animationData: animationData // Pasa el JSON directamente
             });
 
+            // Actualizar el texto dinámico después de cargar la animación
             animation.addEventListener("DOMLoaded", function () {
-                console.log("Lottie animation loaded successfully!");
+                animation.renderer.elements.forEach((layer) => {
+                    if (layer.data.t && layer.data.t.d.k[0].s.t === "{{dynamicText}}") {
+                        layer.data.t.d.k[0].s.t = dynamicText; // Cambiar el texto dinámico
+                        layer.updateDocumentData(); // Aplicar cambios
+                    }
+                });
             });
         });
     </script>
