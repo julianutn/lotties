@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Itim&family=Vidaloka&display=swap');
+
+.text-container {
+  display: flex;
+  margin-top: 40px !important;
+  justify-content: center;
+}
+
+.container {
+  border-radius: 1px;
+  border-style: solid;
+  border-color: black;
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.my-font {
+font-family: 'Vidaloka', serif;
+}
