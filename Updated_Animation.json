@@ -149,7 +149,7 @@
                                 ],
                                 "s": 40,
                                 "f": "SpaceGrotesk-Medium",
-                                "t": "Thank You",
+                                "t": {{dynamicText}},
                                 "j": 0,
                                 "tr": 0,
                                 "lh": 48,
