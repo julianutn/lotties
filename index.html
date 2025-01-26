@@ -4,27 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lottie Animation</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.9.6/lottie.min.js"></script>
+    <script src="https://<tu-usuario>.github.io/<tu-repositorio>/lottie.min.js"></script>
 </head>
 <body>
     <div id="lottie-container" style="width: 300px; height: 300px; margin: auto; padding-top: 50px;"></div>
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            // Lista de frases aleatorias
             const frases = ["Sí", "No", "Tal vez", "Definitivamente", "Nunca", "Quizás", "Probablemente", "Imposible"];
             const fraseAleatoria = frases[Math.floor(Math.random() * frases.length)];
 
-            // Inicializa la animación Lottie
             const animation = lottie.loadAnimation({
-                container: document.getElementById("lottie-container"), // Contenedor donde se cargará la animación
+                container: document.getElementById("lottie-container"),
                 renderer: 'svg',
                 loop: false,
                 autoplay: true,
-                path: 'https://julianutn.github.io/lotties/Updated_Animation.json', // URL del archivo JSON
+                path: 'https://raw.githubusercontent.com/julianutn/lotties/main/Updated_Animation.json', // Raw URL
             });
 
-            // Cambia el texto dinámico después de que se cargue la animación
             animation.addEventListener("DOMLoaded", function () {
                 const svgContainer = document.getElementById("lottie-container").querySelector("svg");
                 if (svgContainer) {
