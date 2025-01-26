@@ -1,35 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lottie Animation</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.9.6/lottie.min.js"></script>
-</head>
-<body>
-    <div id="lottie-container" style="width: 300px; height: 300px;"></div>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const frases = ["Sí", "No", "Tal vez", "Definitivamente", "Nunca", "Quizás", "Probablemente", "Imposible"];
-            const fraseAleatoria = frases[Math.floor(Math.random() * frases.length)];
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.9.6/lottie.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Lista de frases aleatorias
+        const frases = ["Sí", "No", "Tal vez", "Definitivamente", "Nunca", "Quizás", "Probablemente", "Imposible"];
+        const fraseAleatoria = frases[Math.floor(Math.random() * frases.length)];
 
-            const animation = lottie.loadAnimation({
-                container: document.getElementById("lottie-container"),
-                renderer: 'svg',
-                loop: false,
-                autoplay: true,
-                path: './Updated_Animation.json', // Archivo JSON que subirás
-            });
+        // Inicializa la animación Lottie
+        const animation = lottie.loadAnimation({
+            container: document.getElementById("lottie-container"),
+            renderer: 'svg',
+            loop: false,
+            autoplay: true,
+            path: 'https://<your-username>.github.io/<repository-name>/Updated_Animation.json', // URL del JSON
+        });
 
-            animation.addEventListener("DOMLoaded", function () {
-                const textNodes = document.querySelectorAll('text');
+        // Cambia el texto dinámico después de que se cargue la animación
+        animation.addEventListener("DOMLoaded", function () {
+            const svgContainer = document.getElementById("lottie-container").querySelector("svg");
+            if (svgContainer) {
+                const textNodes = svgContainer.querySelectorAll('text');
                 textNodes.forEach(node => {
-                    if (node.textContent === "{{dynamic_text}}" || node.textContent === "na") {
-                        node.textContent = fraseAleatoria;
+                    if (node.textContent.trim() === "{{dynamic_text}}" || node.textContent.trim() === "na") {
+                        node.textContent = fraseAleatoria; // Reemplaza con la frase aleatoria
                     }
                 });
-            });
+            }
         });
-    </script>
-</body>
-</html>
+    });
+</script>
