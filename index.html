@@ -42,7 +42,7 @@
     if (frases.length > 0) {
         // Selecciona una frase aleatoria
         const fraseAleatoria = frases[Math.floor(Math.random() * frases.length)];
-
+console.log("Frase seleccionada:", fraseAleatoria);
         // Muestra la frase aleatoria en el texto dinámico
         const textElement = document.getElementById("dynamic-text");
         textElement.textContent = fraseAleatoria;
