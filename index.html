@@ -32,27 +32,28 @@
     </div>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const frases = ["Sí", "No", "Tal vez", "Definitivamente", "Nunca", "Quizás", "Probablemente", "Imposible"];
-            const fraseAleatoria = frases[Math.floor(Math.random() * frases.length)];
+       document.addEventListener("DOMContentLoaded", function () {
+    const frases = ["Sí", "No", "Tal vez", "Definitivamente"];
+    const fraseAleatoria = frases[Math.floor(Math.random() * frases.length)];
 
-            // Agrega la frase aleatoria al contenedor dinámico
-            const textElement = document.getElementById("dynamic-text");
-            textElement.textContent = fraseAleatoria;
+    const animation = lottie.loadAnimation({
+        container: document.getElementById("lottie-container"),
+        renderer: 'svg',
+        loop: false,
+        autoplay: true,
+        path: 'https://raw.githubusercontent.com/julianutn/lotties/main/Updated_Animation.json'
+    });
 
-            // Inicializa la animación Lottie
-            const animation = lottie.loadAnimation({
-                container: document.getElementById("lottie-container"),
-                renderer: 'svg',
-                loop: false,
-                autoplay: true,
-                path: 'https://raw.githubusercontent.com/julianutn/lotties/main/Updated_Animation.json', // Raw URL del JSON
-            });
-
-            animation.addEventListener("DOMLoaded", function () {
-                console.log("Lottie animation loaded successfully!");
-            });
-        });
+    animation.addEventListener("DOMLoaded", function () {
+        const svgContainer = document.getElementById("lottie-container").querySelector("svg");
+        if (svgContainer) {
+            const textElement = svgContainer.querySelector('text');
+            if (textElement) {
+                textElement.textContent = fraseAleatoria;
+            }
+        }
+    });
+});
     </script>
 </body>
 </html>
