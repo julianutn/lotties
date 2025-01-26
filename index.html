@@ -30,10 +30,8 @@
     </style>
 </head>
 <body>
-    <div id="lottie-container">
-        <!-- Contenedor para el texto dinámico -->
-        <div id="dynamic-text"></div>
-    </div>
+    <div id="lottie-container"></div>
+    <div id="dynamic-text"></div>
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
@@ -44,10 +42,15 @@
             // Muestra la frase aleatoria en el texto dinámico
             const textElement = document.getElementById("dynamic-text");
             textElement.textContent = fraseAleatoria;
+
+            // Carga de la animación Lottie
+            const lottieContainer = document.getElementById("lottie-container");
+            const animation = lottie.loadAnimation({
+                container: lottieContainer, // Contenedor donde se renderizará la animación
                 renderer: 'svg',
-                loop: false,
+                loop: true, // Cambiar a false si deseas que no se repita
                 autoplay: true,
-                path: 'https://raw.githubusercontent.com/julianutn/lotties/main/Updated_Animation.json', // URL del JSON
+                path: 'https://raw.githubusercontent.com/julianutn/lotties/main/Updated_Animation.json' // URL del JSON
             });
 
             animation.addEventListener("DOMLoaded", function () {
