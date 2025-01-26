@@ -7,15 +7,13 @@
     <!-- Cargar la biblioteca Lottie -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.9.6/lottie.min.js"></script>
     <style>
-        /* Contenedor de la animación */
         #lottie-container {
             width: 300px;
             height: 300px;
             margin: auto;
-            position: relative; /* Necesario para posicionar texto */
+            position: relative;
         }
 
-        /* Estilo del texto superpuesto */
         #dynamic-text {
             position: absolute;
             top: 50%;
@@ -23,9 +21,9 @@
             transform: translate(-50%, -50%);
             font-size: 24px;
             font-weight: bold;
-            color: #000; /* Ajusta según tu diseño */
+            color: #000;
             text-align: center;
-            pointer-events: none; /* Evita que el texto interfiera con clics */
+            pointer-events: none;
         }
     </style>
 </head>
@@ -34,34 +32,39 @@
     <div id="dynamic-text"></div>
 
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
-    // Lista de frases aleatorias
-    const frases = ["Sí", "No", "Tal vez", "Definitivamente", "Nunca", "Quizás", "Probablemente", "Imposible"];
+        document.addEventListener("DOMContentLoaded", function () {
+            // Define el array de frases dentro del contexto correcto
+            const frases = ["Sí", "No", "Tal vez", "Definitivamente", "Nunca", "Quizás", "Probablemente", "Imposible"];
 
-    // Verifica si el array tiene elementos antes de continuar
-    if (frases.length > 0) {
-        // Selecciona una frase aleatoria
-        const fraseAleatoria = frases[Math.floor(Math.random() * frases.length)];
-console.log("Frase seleccionada:", fraseAleatoria);
-        // Muestra la frase aleatoria en el texto dinámico
-        const textElement = document.getElementById("dynamic-text");
-        textElement.textContent = fraseAleatoria;
-    } else {
-        console.error("El array 'frases' está vacío.");
-    }
+            // Asegúrate de que el array esté definido antes de usarlo
+            console.log("Frases disponibles:", frases);
 
-    // Carga de la animación Lottie
-    const lottieContainer = document.getElementById("lottie-container");
-    lottie.loadAnimation({
-        container: lottieContainer, // Contenedor donde se renderiza la animación
-        renderer: 'svg',
-        loop: true,
-        autoplay: true,
-        path: 'https://raw.githubusercontent.com/julianutn/lotties/main/Updated_Animation.json' // Ruta al JSON
-    });
-});
-console.log("Frases disponibles:", frases);
-console.log("Frase seleccionada:", fraseAleatoria);
+            // Verifica si el array tiene elementos
+            if (frases.length > 0) {
+                const fraseAleatoria = frases[Math.floor(Math.random() * frases.length)];
+                console.log("Frase seleccionada:", fraseAleatoria);
+
+                // Actualiza el texto dinámico
+                const textElement = document.getElementById("dynamic-text");
+                textElement.textContent = fraseAleatoria;
+            } else {
+                console.error("El array 'frases' está vacío.");
+            }
+
+            // Inicializa la animación Lottie
+            const lottieContainer = document.getElementById("lottie-container");
+            const animation = lottie.loadAnimation({
+                container: lottieContainer,
+                renderer: 'svg',
+                loop: true,
+                autoplay: true,
+                path: 'https://raw.githubusercontent.com/julianutn/lotties/main/Updated_Animation.json'
+            });
+
+            animation.addEventListener("DOMLoaded", function () {
+                console.log("Lottie animation loaded successfully!");
+            });
+        });
     </script>
 </body>
 </html>
