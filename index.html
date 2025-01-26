@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lottie Animation</title>
-    <script src="https://raw.githubusercontent.com/julianutn/lotties/main/Updated_Animation.json"></script>
+    <!-- Cargar la biblioteca Lottie -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.9.6/lottie.min.js"></script>
     <style>
         /* Contenedor de la animación */
         #lottie-container {
@@ -51,6 +52,10 @@
                 loop: false,
                 autoplay: true,
                 path: 'https://raw.githubusercontent.com/julianutn/lotties/main/Updated_Animation.json', // URL del JSON
+            });
+
+            animation.addEventListener("DOMLoaded", function () {
+                console.log("Lottie animation loaded successfully!");
             });
         });
     </script>
