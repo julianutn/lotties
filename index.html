@@ -35,9 +35,6 @@
     </style>
 </head>
 <body>
-    <div class="text-container">
-        <input type="text" id="name-input" value="Hello Youtube :-)" class="my-font">
-    </div>
     <div class="container">
         <div id="animation"></div>
     </div>
@@ -48,20 +45,11 @@
     <!-- JavaScript -->
     <script>
         const ANIMATION_URL = "https://assets2.lottiefiles.com/packages/lf20_0ypqp25v.json";
-        let text = "Hello Youtube :-)";
+        const phrases = ["Si", "No!", "Mmmmm... Puede ser", "Claro!", "Ni ahí!"];
         let lottieData = null;
-        let nameInput = document.getElementById("name-input");
 
         // Usar el trabajador web de Lottie para optimizar
         lottie.useWebWorker();
-
-        nameInput.addEventListener("input", () => {
-            let name = nameInput.value;
-            text = name;
-            console.log("Text: " + text);
-            lottieData.animationData.layers[1].t.d.k[0].s.t = text;
-            reloadAnimation();
-        });
 
         function Get(yourUrl) {
             let Httpreq = new XMLHttpRequest();
@@ -72,6 +60,7 @@
 
         function init() {
             let json_obj = JSON.parse(Get(ANIMATION_URL));
+            const randomText = phrases[Math.floor(Math.random() * phrases.length)];
 
             lottieData = lottie.loadAnimation({
                 container: document.getElementById("animation"),
@@ -81,7 +70,7 @@
                 loop: true
             });
 
-            lottieData.animationData.layers[1].t.d.k[0].s.t = text;
+            lottieData.animationData.layers[1].t.d.k[0].s.t = randomText;
             reloadAnimation();
         }
 
