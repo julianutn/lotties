@@ -73,18 +73,7 @@
             lottieData.animationData.layers[1].t.d.k[0].s.t = randomText;
             reloadAnimation();
         }
-  function reloadAnimation() {
-            if (lottieData) {
-                lottieData.destroy();
-                lottieData = lottie.loadAnimation({
-                    container: document.getElementById("animation"),
-                    renderer: 'svg',
-                    animationData: lottieData.animationData,
-                    autoplay: true,
-                    loop: true
-                });
-            }
-        }
+
       
 
         init();
