@@ -44,7 +44,7 @@
 
     <!-- JavaScript -->
     <script>
-        const ANIMATION_URL = "https://raw.githubusercontent.com/julianutn/lotties/refs/heads/main/card3.json";
+        const ANIMATION_URL = "card3.json"; // Ruta local al archivo JSON
         const phrases = ["NO", "YES", "MAYBE", "PERHAPS", "UNCERTAIN"];
         let lottieData = null;
 
@@ -62,17 +62,20 @@
             let json_obj = JSON.parse(Get(ANIMATION_URL));
             const randomText = phrases[Math.floor(Math.random() * phrases.length)];
 
-            // Obtener el texto existente y escalar según la longitud del nuevo texto
+            // Obtener el texto existente y mostrarlo en consola
             const existingText = json_obj.layers[0].t.d.k[0].s.t;
-            const scaleFactor = randomText.length > 2 ? 100 / randomText.length : 100;
-            console.log("scale", scaleFactor);
-            // Mostrar en consola el texto original y el nuevo texto
             console.log("Texto original:", existingText);
             console.log("Texto seleccionado:", randomText);
 
-            // Ajustar el tamaño del texto dinámicamente
-            json_obj.layers[0].t.d.k[0].s.t = randomText; // Reemplazar texto
-            json_obj.layers[0].t.d.k[0].s.s = scaleFactor; // Escalar tamaño
+            // Calcular el factor de escala dinámico basado en la longitud del texto
+            const baseScale = 100; // Escala base para un texto corto
+            const scaleFactor = baseScale / Math.max(randomText.length / 3, 1);
+
+            // Ajustar el texto y el tamaño dinámicamente
+            json_obj.layers[0].t.d.k[0].s.t = randomText; // Reemplazar el texto
+            json_obj.layers[0].t.d.k[0].s.s = scaleFactor; // Escalar el tamaño dinámico
+
+            console.log("Escala calculada:", scaleFactor);
 
             // Cargar la animación
             lottieData = lottie.loadAnimation({
