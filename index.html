@@ -63,14 +63,15 @@
             const randomText = phrases[Math.floor(Math.random() * phrases.length)];
 
             // Obtener la palabra existente en la ubicación a reemplazar
-            const existingText = json_obj.layers[1].t.d.k[0].s.t;
+            const existingText = "SI"
+                //json_obj.layers[1].t.d.k[0].s.t;
 
             // Mostrar en consola el texto seleccionado y el texto original
             console.log("Texto seleccionado:", randomText);
             console.log("Texto existente a reemplazar:", existingText);
 
             // Reemplazar el texto en la animación
-            json_obj.layers[1].t.d.k[0].s.t = randomText;
+         //   json_obj.layers[1].t.d.k[0].s.t = randomText;
 
             lottieData = lottie.loadAnimation({
                 container: document.getElementById("animation"),
