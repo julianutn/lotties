@@ -65,14 +65,14 @@
             // Obtener el texto existente y escalar según la longitud del nuevo texto
             const existingText = json_obj.layers[0].t.d.k[0].s.t;
             const scaleFactor = randomText.length > 2 ? 100 / randomText.length : 100;
-
+            console.log("scale", scaleFactor);
             // Mostrar en consola el texto original y el nuevo texto
             console.log("Texto original:", existingText);
             console.log("Texto seleccionado:", randomText);
 
             // Ajustar el tamaño del texto dinámicamente
             json_obj.layers[0].t.d.k[0].s.t = randomText; // Reemplazar texto
-            json_obj.layers[0].t.d.k[0].s.s = scaleFactor; // Escalar tamaño
+            //json_obj.layers[0].t.d.k[0].s.s = scaleFactor; // Escalar tamaño
 
             // Cargar la animación
             lottieData = lottie.loadAnimation({
