@@ -45,7 +45,7 @@
     <!-- JavaScript -->
     <script>
         const ANIMATION_URL = "https://raw.githubusercontent.com/julianutn/lotties/refs/heads/main/card3.json";
-        const phrases = ["NO"];
+        const phrases = ["NO", "YES", "MAYBE", "PERHAPS", "UNCERTAIN"];
         let lottieData = null;
 
         // Usar el trabajador web de Lottie para optimizar
@@ -62,16 +62,19 @@
             let json_obj = JSON.parse(Get(ANIMATION_URL));
             const randomText = phrases[Math.floor(Math.random() * phrases.length)];
 
-            // Obtener la palabra existente en la ubicación a reemplazar
+            // Obtener el texto existente y escalar según la longitud del nuevo texto
             const existingText = json_obj.layers[0].t.d.k[0].s.t;
+            const scaleFactor = randomText.length > 2 ? 100 / randomText.length : 100;
 
-            // Mostrar en consola el texto seleccionado y el texto original
+            // Mostrar en consola el texto original y el nuevo texto
+            console.log("Texto original:", existingText);
             console.log("Texto seleccionado:", randomText);
-            console.log("Texto existente a reemplazar:", existingText);
 
-            // Reemplazar el texto en la animación
-            json_obj.layers[0].t.d.k[0].s.t = randomText;
+            // Ajustar el tamaño del texto dinámicamente
+            json_obj.layers[0].t.d.k[0].s.t = randomText; // Reemplazar texto
+            json_obj.layers[0].t.d.k[0].s.s = scaleFactor; // Escalar tamaño
 
+            // Cargar la animación
             lottieData = lottie.loadAnimation({
                 container: document.getElementById("animation"),
                 renderer: 'svg',
@@ -83,7 +86,7 @@
             reloadAnimation();
         }
 
-       function reloadAnimation() {
+        function reloadAnimation() {
             if (lottieData) {
                 lottieData.destroy();
                 lottieData = lottie.loadAnimation({
@@ -95,6 +98,7 @@
                 });
             }
         }
+
         init();
     </script>
 </body>
