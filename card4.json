@@ -464,7 +464,7 @@
                 {
                   "s": {
                     "s": 100,
-                    "f": "Impact",
+                    "f": "Arial",
                     "t": "QWERTYUIOPASDFGHJKLÑZXCVBNM qwertyuiopasdfghjklñxcvbn\u0003m,",
                     "ca": 0,
                     "j": 0,
@@ -619,8 +619,8 @@
   "fonts": {
     "list": [
       {
-        "fName": "Impact",
-        "fFamily": "Impact",
+        "fName": "Arial",
+        "fFamily": "Arial",
         "fStyle": "Regular",
         "ascent": 79.0985107421875
       },
@@ -1561,7 +1561,7 @@
           }
         ]
       },
-      "fFamily": "Impact"
+      "fFamily": "Arial"
     },
     {
       "ch": "W",
@@ -1785,7 +1785,7 @@
           }
         ]
       },
-      "fFamily": "Impact"
+      "fFamily": "Arial"
     },
     {
       "ch": "E",
@@ -1973,7 +1973,7 @@
           }
         ]
       },
-      "fFamily": "Impact"
+      "fFamily": "Arial"
     },
     {
       "ch": "R",
@@ -2314,7 +2314,7 @@
           }
         ]
       },
-      "fFamily": "Impact"
+      "fFamily": "Arial"
     },
     {
       "ch": "T",
@@ -2454,7 +2454,7 @@
           }
         ]
       },
-      "fFamily": "Impact"
+      "fFamily": "Arial"
     },
     {
       "ch": "Y",
@@ -2606,7 +2606,7 @@
           }
         ]
       },
-      "fFamily": "Impact"
+      "fFamily": "Arial"
     },
     {
       "ch": "U",
@@ -2866,7 +2866,7 @@
           }
         ]
       },
-      "fFamily": "Impact"
+      "fFamily": "Arial"
     },
     {
       "ch": "I",
@@ -2958,7 +2958,7 @@
           }
         ]
       },
-      "fFamily": "Impact"
+      "fFamily": "Arial"
     },
     {
       "ch": "O",
@@ -3359,7 +3359,7 @@
           }
         ]
       },
-      "fFamily": "Impact"
+      "fFamily": "Arial"
     },
     {
       "ch": "P",
@@ -3664,7 +3664,7 @@
           }
         ]
       },
-      "fFamily": "Impact"
+      "fFamily": "Arial"
     },
     {
       "ch": "A",
@@ -3861,7 +3861,7 @@
           }
         ]
       },
-      "fFamily": "Impact"
+      "fFamily": "Arial"
     },
     {
       "ch": "S",
@@ -4325,7 +4325,7 @@
           }
         ]
       },
-      "fFamily": "Impact"
+      "fFamily": "Arial"
     },
     {
       "ch": "D",
@@ -4618,7 +4618,7 @@
           }
         ]
       },
-      "fFamily": "Impact"
+      "fFamily": "Arial"
     },
     {
       "ch": "F",
@@ -4782,7 +4782,7 @@
           }
         ]
       },
-      "fFamily": "Impact"
+      "fFamily": "Arial"
     },
     {
       "ch": "G",
@@ -5210,7 +5210,7 @@
           }
         ]
       },
-      "fFamily": "Impact"
+      "fFamily": "Arial"
     },
     {
       "ch": "H",
@@ -5398,7 +5398,7 @@
           }
         ]
       },
-      "fFamily": "Impact"
+      "fFamily": "Arial"
     },
     {
       "ch": "J",
@@ -5598,7 +5598,7 @@
           }
         ]
       },
-      "fFamily": "Impact"
+      "fFamily": "Arial"
     },
     {
       "ch": "K",
@@ -5774,7 +5774,7 @@
           }
         ]
       },
-      "fFamily": "Impact"
+      "fFamily": "Arial"
     },
     {
       "ch": "L",
@@ -5890,7 +5890,7 @@
           }
         ]
       },
-      "fFamily": "Impact"
+      "fFamily": "Arial"
     },
     {
       "ch": "Ñ",
@@ -6231,7 +6231,7 @@
           }
         ]
       },
-      "fFamily": "Impact"
+      "fFamily": "Arial"
     },
     {
       "ch": "Z",
@@ -6395,7 +6395,7 @@
           }
         ]
       },
-      "fFamily": "Impact"
+      "fFamily": "Arial"
     },
     {
       "ch": "X",
@@ -6607,7 +6607,7 @@
           }
         ]
       },
-      "fFamily": "Impact"
+      "fFamily": "Arial"
     },
     {
       "ch": "C",
@@ -6999,7 +6999,7 @@
           }
         ]
       },
-      "fFamily": "Impact"
+      "fFamily": "Arial"
     },
     {
       "ch": "V",
@@ -7139,7 +7139,7 @@
           }
         ]
       },
-      "fFamily": "Impact"
+      "fFamily": "Arial"
     },
     {
       "ch": "B",
@@ -7549,7 +7549,7 @@
           }
         ]
       },
-      "fFamily": "Impact"
+      "fFamily": "Arial"
     },
     {
       "ch": "N",
@@ -7713,7 +7713,7 @@
           }
         ]
       },
-      "fFamily": "Impact"
+      "fFamily": "Arial"
     },
     {
       "ch": "M",
@@ -7925,7 +7925,7 @@
           }
         ]
       },
-      "fFamily": "Impact"
+      "fFamily": "Arial"
     },
     {
       "ch": " ",
@@ -7933,7 +7933,7 @@
       "style": "Regular",
       "w": 17.63,
       "data": {},
-      "fFamily": "Impact"
+      "fFamily": "Arial"
     },
     {
       "ch": "q",
@@ -8310,7 +8310,7 @@
           }
         ]
       },
-      "fFamily": "Impact"
+      "fFamily": "Arial"
     },
     {
       "ch": "w",
@@ -8522,7 +8522,7 @@
           }
         ]
       },
-      "fFamily": "Impact"
+      "fFamily": "Arial"
     },
     {
       "ch": "e",
@@ -8971,7 +8971,7 @@
           }
         ]
       },
-      "fFamily": "Impact"
+      "fFamily": "Arial"
     },
     {
       "ch": "r",
@@ -9135,7 +9135,7 @@
           }
         ]
       },
-      "fFamily": "Impact"
+      "fFamily": "Arial"
     },
     {
       "ch": "t",
@@ -9407,7 +9407,7 @@
           }
         ]
       },
-      "fFamily": "Impact"
+      "fFamily": "Arial"
     },
     {
       "ch": "y",
@@ -9631,7 +9631,7 @@
           }
         ]
       },
-      "fFamily": "Impact"
+      "fFamily": "Arial"
     },
     {
       "ch": "u",
@@ -9891,7 +9891,7 @@
           }
         ]
       },
-      "fFamily": "Impact"
+      "fFamily": "Arial"
     },
     {
       "ch": "i",
@@ -10052,7 +10052,7 @@
           }
         ]
       },
-      "fFamily": "Impact"
+      "fFamily": "Arial"
     },
     {
       "ch": "o",
@@ -10441,7 +10441,7 @@
           }
         ]
       },
-      "fFamily": "Impact"
+      "fFamily": "Arial"
     },
     {
       "ch": "p",
@@ -10818,7 +10818,7 @@
           }
         ]
       },
-      "fFamily": "Impact"
+      "fFamily": "Arial"
     },
     {
       "ch": "a",
@@ -11267,7 +11267,7 @@
           }
         ]
       },
-      "fFamily": "Impact"
+      "fFamily": "Arial"
     },
     {
       "ch": "s",
@@ -11743,7 +11743,7 @@
           }
         ]
       },
-      "fFamily": "Impact"
+      "fFamily": "Arial"
     },
     {
       "ch": "d",
@@ -12120,7 +12120,7 @@
           }
         ]
       },
-      "fFamily": "Impact"
+      "fFamily": "Arial"
     },
     {
       "ch": "f",
@@ -12380,7 +12380,7 @@
           }
         ]
       },
-      "fFamily": "Impact"
+      "fFamily": "Arial"
     },
     {
       "ch": "g",
@@ -12853,7 +12853,7 @@
           }
         ]
       },
-      "fFamily": "Impact"
+      "fFamily": "Arial"
     },
     {
       "ch": "h",
@@ -13101,7 +13101,7 @@
           }
         ]
       },
-      "fFamily": "Impact"
+      "fFamily": "Arial"
     },
     {
       "ch": "j",
@@ -13346,7 +13346,7 @@
           }
         ]
       },
-      "fFamily": "Impact"
+      "fFamily": "Arial"
     },
     {
       "ch": "k",
@@ -13522,7 +13522,7 @@
           }
         ]
       },
-      "fFamily": "Impact"
+      "fFamily": "Arial"
     },
     {
       "ch": "l",
@@ -13614,7 +13614,7 @@
           }
         ]
       },
-      "fFamily": "Impact"
+      "fFamily": "Arial"
     },
     {
       "ch": "ñ",
@@ -14039,7 +14039,7 @@
           }
         ]
       },
-      "fFamily": "Impact"
+      "fFamily": "Arial"
     },
     {
       "ch": "x",
@@ -14227,7 +14227,7 @@
           }
         ]
       },
-      "fFamily": "Impact"
+      "fFamily": "Arial"
     },
     {
       "ch": "c",
@@ -14595,7 +14595,7 @@
           }
         ]
       },
-      "fFamily": "Impact"
+      "fFamily": "Arial"
     },
     {
       "ch": "v",
@@ -14735,7 +14735,7 @@
           }
         ]
       },
-      "fFamily": "Impact"
+      "fFamily": "Arial"
     },
     {
       "ch": "b",
@@ -15124,7 +15124,7 @@
           }
         ]
       },
-      "fFamily": "Impact"
+      "fFamily": "Arial"
     },
     {
       "ch": "n",
@@ -15372,14 +15372,14 @@
           }
         ]
       },
-      "fFamily": "Impact"
+      "fFamily": "Arial"
     },
     {
       "ch": "\u0003",
       "size": 100,
       "style": "Regular",
       "w": 0,
-      "fFamily": "Impact"
+      "fFamily": "Arial"
     },
     {
       "ch": "m",
@@ -15759,7 +15759,7 @@
           }
         ]
       },
-      "fFamily": "Impact"
+      "fFamily": "Arial"
     },
     {
       "ch": ",",
@@ -15911,7 +15911,7 @@
           }
         ]
       },
-      "fFamily": "Impact"
+      "fFamily": "Arial"
     }
   ]
 }
