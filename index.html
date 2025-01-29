@@ -47,32 +47,46 @@
     const phrases = ["NO", "SI", "TAL VEZ", "QUIZAS", "NO LO SE"];
     let lottieData = null;
 
-    function loadAnimation() {
-    let Httpreq = new XMLHttpRequest();
-    Httpreq.open("GET", ANIMATION_URL, true);
-    Httpreq.onreadystatechange = function () {
-        if (Httpreq.readyState == 4 && Httpreq.status == 200) {
-            let json_obj = JSON.parse(Httpreq.responseText);
-            const randomText = phrases[Math.floor(Math.random() * phrases.length)];
+   async function loadAnimation() {
+    try {
+        const response = await fetch("card4.json"); // Carga el JSON de la animación
+        if (!response.ok) throw new Error("Error al cargar el JSON");
 
-            console.log("Texto original:", json_obj.layers[0].t.d.k[0].s.t);
-            console.log("Texto seleccionado:", randomText);
+        const json_obj = await response.json();
 
-            json_obj.layers[0].t.d.k[0].s.t = randomText;
+        // Frases disponibles
+        const phrases = ["NO", "SI", "TAL VEZ", "QUIZÁS", "NO LO SÉ"];
+        const randomText = phrases[Math.floor(Math.random() * phrases.length)];
 
-            lottieData = lottie.loadAnimation({
-                container: document.getElementById("animation"),
-                renderer: 'svg',
-                animationData: json_obj,
-                autoplay: true,
-                loop: true
-            });
-        }
-    };
-    Httpreq.send(null);
+        // 🔹 Acceder y modificar el texto en la capa específica
+        json_obj.assets.forEach(asset => {
+            if (asset.id === "comp_1") { // Accedemos a la composición de la cara frontal
+                asset.layers.forEach(layer => {
+                    if (layer.ty === 5) { // Verifica si es una capa de texto
+                        console.log("Texto original:", layer.t.d.k[0].s.t);
+                        layer.t.d.k[0].s.t = randomText; // Reemplazar el texto
+                        console.log("Texto cambiado a:", layer.t.d.k[0].s.t);
+                    }
+                });
+            }
+        });
+
+        // Cargar la animación con el JSON modificado
+        lottie.loadAnimation({
+            container: document.getElementById("animation"),
+            renderer: 'svg',
+            animationData: json_obj,
+            autoplay: true,
+            loop: true
+        });
+
+    } catch (error) {
+        console.error("Error cargando la animación:", error);
+    }
 }
 
 loadAnimation();
+
 </script>
 </body>
 </html>
