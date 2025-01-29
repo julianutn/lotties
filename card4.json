@@ -13,7 +13,7 @@
       "w": 1024,
       "h": 1792,
       "u": "",
-      "p": "cardfrontal.webp",
+      "p": "caraTrasera.webp",
       "e": 0
     },
     {
@@ -21,7 +21,7 @@
       "w": 1024,
       "h": 1792,
       "u": "",
-      "p": "cardtrasera.webp",
+      "p": "caraFrontal.webp",
       "e": 0
     },
     {
