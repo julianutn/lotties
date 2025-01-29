@@ -14,70 +14,52 @@
             justify-content: center;
         }
 
-        .container {
-            border-radius: 1px;
-            border-style: solid;
-            border-color: black;
-            display: flex;
-            margin: auto;
-            justify-content: center;
-            margin-top: 10px;
-        }
+          .container {
+        border-radius: 1px;
+        border-style: solid;
+        border-color: black;
+        display: flex;
+        margin: auto;
+        justify-content: center;
+        margin-top: 10px;
+    }
 
-        .my-font {
-            font-family: 'Vidaloka', serif;
-        }
+    .my-font {
+        font-family: 'Vidaloka', serif;
+    }
 
-        #animation {
-            width: 300px;
-            height: 300px;
-        }
-    </style>
+    #animation {
+        width: 300px;
+        height: 300px;
+    }
+</style>
 </head>
 <body>
     <div class="container">
         <div id="animation"></div>
     </div>
 
-    <!-- Lottie Web -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.10.0/lottie.min.js"></script>
+   <!-- Lottie Web -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.10.0/lottie.min.js"></script>
 
-    <!-- JavaScript -->
-    <script>
-        const ANIMATION_URL = "card4.json"; // Ruta local al archivo JSON
-        const phrases = ["NO", "SI", "TAL VEZ", "QUIZAS", "NO LO SE"];
-        let lottieData = null;
+<script>
+    const ANIMATION_URL = "card4.json";
+    const phrases = ["NO", "SI", "TAL VEZ", "QUIZAS", "NO LO SE"];
+    let lottieData = null;
 
-        // Usar el trabajador web de Lottie para optimizar
-        lottie.useWebWorker();
-
-        function Get(yourUrl) {
-            let Httpreq = new XMLHttpRequest();
-            Httpreq.open("GET", yourUrl, false);
-            Httpreq.send(null);
-            return Httpreq.responseText;
-        }
-
-        function init() {
-            let json_obj = JSON.parse(Get(ANIMATION_URL));
+    async function loadAnimation() {
+        try {
+            const response = await fetch(ANIMATION_URL);
+            if (!response.ok) throw new Error("Error al cargar el JSON");
+            
+            const json_obj = await response.json();
             const randomText = phrases[Math.floor(Math.random() * phrases.length)];
 
-            // Obtener el texto existente y mostrarlo en consola
-            const existingText = json_obj.layers[0].t.d.k[0].s.t;
-            console.log("Texto original:", existingText);
+            console.log("Texto original:", json_obj.layers[0].t.d.k[0].s.t);
             console.log("Texto seleccionado:", randomText);
-
-            // Calcular el factor de escala dinámico basado en la longitud del texto
-            const baseScale = 100; // Escala base para un texto corto
-            const scaleFactor = baseScale / Math.max(randomText.length / 3, 1);
-
-            // Ajustar el texto y el tamaño dinámicamente
-          //  json_obj.layers[0].t.d.k[0].s.t = randomText; // Reemplazar el texto
-          //  json_obj.layers[0].t.d.k[0].s.s = scaleFactor; // Escalar el tamaño dinámico
-
-            console.log("Escala calculada:", scaleFactor);
-
-            // Cargar la animación
+            
+            json_obj.layers[0].t.d.k[0].s.t = randomText;
+            
             lottieData = lottie.loadAnimation({
                 container: document.getElementById("animation"),
                 renderer: 'svg',
@@ -85,24 +67,12 @@
                 autoplay: true,
                 loop: true
             });
-
-            reloadAnimation();
+        } catch (error) {
+            console.error("Error cargando la animación:", error);
         }
+    }
 
-        function reloadAnimation() {
-            if (lottieData) {
-                lottieData.destroy();
-                lottieData = lottie.loadAnimation({
-                    container: document.getElementById("animation"),
-                    renderer: 'svg',
-                    animationData: lottieData.animationData,
-                    autoplay: true,
-                    loop: true
-                });
-            }
-        }
-
-        init();
-    </script>
+    loadAnimation();
+</script>
 </body>
 </html>
