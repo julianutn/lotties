@@ -47,19 +47,19 @@
     const phrases = ["NO", "SI", "TAL VEZ", "QUIZAS", "NO LO SE"];
     let lottieData = null;
 
-    async function loadAnimation() {
-        try {
-            const response = await fetch(ANIMATION_URL);
-            if (!response.ok) throw new Error("Error al cargar el JSON");
-            
-            const json_obj = await response.json();
+    function loadAnimation() {
+    let Httpreq = new XMLHttpRequest();
+    Httpreq.open("GET", ANIMATION_URL, true);
+    Httpreq.onreadystatechange = function () {
+        if (Httpreq.readyState == 4 && Httpreq.status == 200) {
+            let json_obj = JSON.parse(Httpreq.responseText);
             const randomText = phrases[Math.floor(Math.random() * phrases.length)];
 
             console.log("Texto original:", json_obj.layers[0].t.d.k[0].s.t);
             console.log("Texto seleccionado:", randomText);
-            
+
             json_obj.layers[0].t.d.k[0].s.t = randomText;
-            
+
             lottieData = lottie.loadAnimation({
                 container: document.getElementById("animation"),
                 renderer: 'svg',
@@ -67,12 +67,12 @@
                 autoplay: true,
                 loop: true
             });
-        } catch (error) {
-            console.error("Error cargando la animación:", error);
         }
-    }
+    };
+    Httpreq.send(null);
+}
 
-    loadAnimation();
+loadAnimation();
 </script>
 </body>
 </html>
