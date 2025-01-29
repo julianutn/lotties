@@ -6,7 +6,7 @@
   "w": 1920,
   "h": 1080,
   "nm": "cartaGiratoria",
-  "ddd": 1,
+  "ddd": 0,
   "assets": [
     {
       "id": "image_0",
@@ -725,7 +725,7 @@
       "bm": 0
     },
     {
-      "ddd": 1,
+      "ddd": 0,
       "ind": 2,
       "ty": 4,
       "nm": "Capa de formas 1",
@@ -938,7 +938,7 @@
       "bm": 0
     },
     {
-      "ddd": 1,
+      "ddd": 0,
       "ind": 3,
       "ty": 0,
       "nm": "caraTrasera",
@@ -1013,7 +1013,7 @@
       "bm": 0
     },
     {
-      "ddd": 1,
+      "ddd": 0,
       "ind": 4,
       "ty": 0,
       "nm": "caraFrontal",
